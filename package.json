@@ -1,7 +1,7 @@
 {
   "scripts": {
     "clean": "rm -rf dist; rm -rf bots; mkdir dist; mkdir bots",
-    "remove-types": "rm -rf bots/types; find bots/ -type f -exec sed -i \"s/import.*'\\.\\/types.*//g\" {} \\;",
+    "remove-types": "rm -rf bots/types; find bots/ -type f -exec sed -i \"s/import.*'\\.[\\.\\/]*\\/types.*//g\" {} \\;",
     "remove-window": "find dist/ -type f -exec sed -i \"s/window\\.//g\" {} \\;",
     "inline": "find bots/ -type f -maxdepth 1 -exec npx rollup {} --format cjs --no-treeshake --no-strict --no-externalLiveBindings -p @rollup/plugin-commonjs -p @rollup/plugin-json -p @rollup/plugin-node-resolve --no-interop --inlineDynamicExports --file dist/{} \\;; rm -rf bots",
     "build": "npm -s run clean && npx tsc && npm -s run remove-types; npm -s run inline"
