@@ -8,5 +8,5 @@ export default class Direction {
   opposite: Direction;
   rotateCw: Direction;
   rotateCcw: Direction;
-  coords: Coords;
+  toCoords: Coords;
 }
