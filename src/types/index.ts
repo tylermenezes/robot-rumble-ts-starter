@@ -17,5 +17,5 @@ interface Debug {
 
 declare global {
   const MAP_SIZE: number;
-  const Debug: Debug;
+  const debug: Debug;
 }
